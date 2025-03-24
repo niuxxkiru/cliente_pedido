@@ -38,8 +38,7 @@ group by p.seccion
 having p.seccion like '%deportes%';
 
 
-SELECT DATE_FORMAT('2024-03-12', '%d %M %Y') AS fecha_formateada;
-SELECT DATE_FORMAT('2024-03-12', '%d %M %Y') AS fecha_formateada;
+
 
 select p.articulo,p.seccion, p.precio, ROUND((p.precio*0.93), 2) as DESCUENTO_7
 from producto p;
@@ -56,10 +55,7 @@ alter table producto_pedido add column unidades int;
 
 ALTER TABLE producto_nuevo MODIFY COLUMN importado boolean;
 
-SET SQL_SAFE_UPDATES = 0;
 
-
-SET SQL_SAFE_UPDATES = 1;
 
 
 
