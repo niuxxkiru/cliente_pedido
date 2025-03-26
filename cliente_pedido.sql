@@ -1,5 +1,5 @@
 USE CLIENTE_PEDIDO;
-SELECT * FROM producto_pedido;
+SELECT * FROM pedido;
 SELECT * FROM producto_nuevo;
 DESC producto_pedido;
 
@@ -55,18 +55,21 @@ alter table producto_pedido add column unidades int;
 
 ALTER TABLE producto_nuevo MODIFY COLUMN importado boolean;
 
+select *
+from cliente c join pedido p on c.codigo= p.cod_cliente
+where c.poblacion like '%madrid%';
 
+select c.codigo, c.poblacion, c.direccion,p.nro, p.cod_cliente, p.pago
+from cliente c left join pedido p on c.codigo=p.cod_cliente
+where c.poblacion like '%madrid%' and p.cod_cliente is null;
 
+-- muestra todos los cl con sus pedidos. hay valores null xq hay cl q no hicieron pedidos 
+select*
+from cliente c left join pedido p on c.codigo=p.cod_cliente;
 
-
-
-
-
-
-
-
-
-
+-- muestra todos los pedidos con cl. En este caso, no puede haber pedidos realizados con clientes q no existen x eso no hay valores null
+select*
+from cliente c join pedido p on c.codigo=p.cod_cliente;
 
 
 
