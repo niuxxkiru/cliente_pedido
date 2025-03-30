@@ -75,6 +75,12 @@ where p.precio > (select avg(p2.precio) from producto p2);
 
 -- nombre y precio de aquellos articulos de los q se han pedido mas de 20 unidades
 select p.articulo, p.precio
-from producto
-where( )
+from producto p
+where p.codigo IN ( select pp.codigo
+				from producto_pedido pp
+				where unidades >= 20);
+
+select pp.codigo
+				from producto_pedido pp
+				where unidades >= 20;
 
