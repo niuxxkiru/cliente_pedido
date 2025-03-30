@@ -1,5 +1,5 @@
 USE CLIENTE_PEDIDO;
-SELECT * FROM pedido;
+SELECT * FROM producto;
 SELECT * FROM producto_nuevo;
 DESC producto_pedido;
 
@@ -67,6 +67,11 @@ from cliente c join pedido p on c.codigo=p.cod_cliente;
 select c.codigo, c.poblacion, c.direccion,p.nro, p.cod_cliente, p.pago
 from cliente c left join pedido p on c.codigo=p.cod_cliente
 where c.poblacion like '%madrid%' and p.cod_cliente is null;
+
+-- muestra el art y seccion cuyo precio supere la media
+select p.articulo, p.seccion
+from producto p
+where p.precio > (select avg(p2.precio) from producto p2);
 
 
 
