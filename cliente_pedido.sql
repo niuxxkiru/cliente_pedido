@@ -1,6 +1,6 @@
 USE CLIENTE_PEDIDO;
 SELECT * FROM producto;
-SELECT * FROM producto_nuevo;
+SELECT * FROM producto_pedido;
 DESC producto_pedido;
 
 ALTER TABLE pedido 
@@ -73,5 +73,8 @@ select p.articulo, p.seccion
 from producto p
 where p.precio > (select avg(p2.precio) from producto p2);
 
-
+-- nombre y precio de aquellos articulos de los q se han pedido mas de 20 unidades
+select p.articulo, p.precio
+from producto
+where( )
 
