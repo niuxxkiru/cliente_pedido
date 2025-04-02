@@ -1,5 +1,5 @@
 USE CLIENTE_PEDIDO;
-SELECT * FROM producto;
+SELECT * FROM pedido;
 SELECT * FROM producto_pedido;
 DESC producto_pedido;
 
@@ -83,4 +83,11 @@ where p.codigo IN ( select pp.codigo
 select pp.codigo
 				from producto_pedido pp
 				where unidades >= 20;
+
+-- cl que no pagaron con tarjeta ()
+select cl.codigo, cl.empresa
+from cliente cl
+where cl.codigo not in (select pd.cod_cliente
+			from pedido pd
+			where pd.pago like "tarjeta");
 
