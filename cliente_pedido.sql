@@ -1,6 +1,6 @@
 USE CLIENTE_PEDIDO;
 SELECT * FROM producto;
-SELECT * FROM producto_pedido;
+SELECT * FROM clientes_madrid;
 DESC producto_pedido;
 
 ALTER TABLE pedido 
@@ -96,6 +96,17 @@ UPDATE producto
 SET precio = precio + 10
 WHERE codigo <> '';
 
+UPDATE producto
+SET precio = precio + 10
+WHERE codigo <> '' and seccion like '%deportes%';
+
 SHOW INDEXES FROM producto;
+
+-- CREAR TABLA EN BASE A OTRA
+create table clientes_madrid
+as
+select *
+from cliente
+where poblacion like '%madrid%';
 
 
