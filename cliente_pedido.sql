@@ -1,5 +1,5 @@
 USE CLIENTE_PEDIDO;
-SELECT * FROM producto;
+SELECT * FROM PEDIDO;
 SELECT * FROM clientes_madrid;
 DESC producto_pedido;
 
@@ -109,4 +109,18 @@ select *
 from cliente
 where poblacion like '%madrid%';
 
+/*
+-- ELIMINAR REGISTROS
+DELETE FROM cliente
+WHERE poblacion like '%madrid%';
 
+-- INSERTAR DATOS ANEXADOS
+INSERT INTO CLIENTE
+SELECT * FROM CLIENTES_MADRID;
+
+-- SI NO TIENE LAS MISMAS COLUMNAS
+INSERT INTO cliente (id_cliente, nombre, direccion, poblacion, ...)
+SELECT id_cliente, nombre, direccion, poblacion, ...
+FROM clientes_madrid;
+
+*/
