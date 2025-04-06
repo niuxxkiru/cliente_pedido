@@ -1,3 +1,13 @@
+| DDL  |DML   |DCL   |TCL   |
+| ------------ | ------------ | ------------ | ------------ |
+| CREATE  |SELECT   | GRANT  |COMMIT   |
+|  ALTER | INSERT  |REVOKE   | ROLLBACK  |
+| DROP  | UPDATE  |   | SAVEPOINT  |
+| TRUNCATE |DELETE | | | | 
+
+
+
+
 ## 🔹 Explicación de IN
 
 ```sql
@@ -57,3 +67,5 @@ Pero esto cambia el significado de la consulta y solo devolverá productos asoci
 Usa **IN** cuando la subconsulta devuelve varios valores.
 
 Usa **=**  solo si la subconsulta devuelve un único valor.
+
+
