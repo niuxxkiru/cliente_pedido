@@ -1,5 +1,5 @@
 USE CLIENTE_PEDIDO;
-SELECT * FROM pedido;
+SELECT * FROM producto;
 SELECT * FROM producto_pedido;
 DESC producto_pedido;
 
@@ -90,4 +90,12 @@ from cliente cl
 where cl.codigo not in (select pd.cod_cliente
 			from pedido pd
 			where pd.pago like "tarjeta");
+            
+-- ACTUALIZACION DE PRECIOS
+UPDATE producto
+SET precio = precio + 10
+WHERE codigo <> '';
+
+SHOW INDEXES FROM producto;
+
 
