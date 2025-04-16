@@ -124,3 +124,33 @@ SELECT id_cliente, nombre, direccion, poblacion, ...
 FROM clientes_madrid;
 
 */
+
+/*
+-- REFERENCIAS CRUZADAS
+transform sum(precio) as total
+select articulo
+from producto
+group by articulo
+pivot seccion;
+
+-- REFERENCIA CRUZADA CON DOS TABLAS
+-- se guarda la consulta y en la consulta de referencia en vez de ocupar una tabla de usa la consulta
+select c.empresa, c.poblacion, p.pago
+from cliente c join pedido p on c.codigo=p.cod_cliente; -- nombre de la consulta: previa
+
+transform count(poblacion) as total_pago
+select empresa
+from previa
+group by empresa
+pivot pago;
+
+-- REFERENCIA CRUZADA CON DOS FILAS
+transform sum(precio)as total
+select articulo, origen
+from producto
+group by articulo, origen
+pivot seccion;
+*/
+
+select * from pedido;
+explain select * from cliente;
