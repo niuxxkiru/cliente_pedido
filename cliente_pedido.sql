@@ -159,14 +159,15 @@ precio int,
 insertado datetime);
 
 select*
-from producto;
+from reg_productos;
 
 CREATE TRIGGER productos_ai AFTER INSERT ON producto FOR EACH ROW
 INSERT INTO reg_productos(cod_art, articulo, precio, insertado)
 values (new.codigo, new.articulo, new.precio, now());
 
-
-
+-- PROBANDO TRIGGER
+INSERT INTO producto (codigo, seccion, articulo, precio, fecha, origen) 
+values ('AR76','CONFECCION', 'PANTALON', 50, curdate(), 'ESPANA');
 
 
 
