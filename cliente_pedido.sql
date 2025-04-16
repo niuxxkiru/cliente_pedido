@@ -152,5 +152,23 @@ group by articulo, origen
 pivot seccion;
 */
 
-select * from pedido;
-explain select * from cliente;
+-- TRIGGERS
+CREATE TABLE REG_PRODUCTOS(cod_art varchar(25),
+articulo varchar(30),
+precio int,
+insertado datetime);
+
+select*
+from producto;
+
+CREATE TRIGGER productos_ai AFTER INSERT ON producto FOR EACH ROW
+INSERT INTO reg_productos(cod_art, articulo, precio, insertado)
+values (new.codigo, new.articulo, new.precio, now());
+
+
+
+
+
+
+
+
